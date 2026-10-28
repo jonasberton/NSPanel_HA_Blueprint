@@ -58,8 +58,8 @@ api:
                   is_this_state ? 43 : 42
               );
 
-              const uint32_t bg_color = is_this_state ? Colors::GREEN : Colors::GRAY_LIGHT;
-              const uint32_t font_color = is_this_state ? Colors::WHITE : Colors::BLACK;
+              const uint32_t bg_color = is_this_state ? 64900 : 10566;
+              const uint32_t font_color = is_this_state ? 10597 : Colors::WHITE;
 
               disp1->set_component_background_color((std::string(button_name) + "_text").c_str(), bg_color);
               disp1->set_component_background_color((std::string(button_name) + "_icon").c_str(), bg_color);

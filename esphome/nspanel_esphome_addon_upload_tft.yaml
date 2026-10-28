@@ -9,8 +9,8 @@
 ---
 substitutions:
   ################## Defaults ##################
-  nextion_update_base_url: "https://raw.githubusercontent.com/Blackymas/NSPanel_HA_Blueprint/"
-  nextion_update_url: "${nextion_update_base_url}/main/hmi/nspanel_blank.tft"
+  nextion_update_base_url: "${gitea_raw_url}"
+  nextion_update_url: "${nextion_update_base_url}hmi/nspanel_eu.tft"
   upload_tft_automatically: true
   upload_tft_baud_rate: 115200
   upload_tft_wait_ms_after_boot: 300000  # 5min
@@ -209,7 +209,7 @@ script:
                 };
 
                 resolved_url = std::string("${nextion_update_base_url}") +
-                              "v${version}/hmi/nspanel_" +
+                              "hmi/nspanel_" +
                               FILENAME_PARTS[idx-1] + ".tft";
               } else {
                 resolved_url = "${nextion_update_url}";

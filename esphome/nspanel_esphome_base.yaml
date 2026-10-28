@@ -14,6 +14,13 @@ substitutions:
   BOOT_STEP_BASE: 0
   device_name: nspanel
   friendly_name: ${device_name}
+  ## Local Git server (Gitea) hosting this project - replaces GitHub
+  gitea_url: "http://192.168.10.23:3000"
+  gitea_owner: admin
+  gitea_repo: nspanel
+  gitea_branch: main
+  gitea_repo_url: "${gitea_url}/${gitea_owner}/${gitea_repo}.git"
+  gitea_raw_url: "${gitea_url}/${gitea_owner}/${gitea_repo}/raw/branch/${gitea_branch}/"
   GPIO_PSRAM_CLK_PIN: '5'
   GPIO_PSRAM_CS_PIN: '18'
   name: ${device_name}
@@ -46,8 +53,8 @@ esphome:
 external_components:
   - source:
       type: git
-      url: https://github.com/Blackymas/NSPanel_HA_Blueprint
-      ref: v${version}
+      url: ${gitea_repo_url}
+      ref: ${gitea_branch}
     refresh: 300s
     components:
       - nspanel_ha_blueprint
